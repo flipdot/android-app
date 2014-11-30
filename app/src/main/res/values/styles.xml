@@ -1,8 +1,17 @@
 <resources>
 
+    <color name="titlebackground">#edd400</color>
+
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppTheme"
+           parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/CustomActionBar</item>
+    </style>
+
+    <style name="CustomActionBar"
+           parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">>
+        <item name="android:background">@color/titlebackground</item>
     </style>
 
 </resources>
