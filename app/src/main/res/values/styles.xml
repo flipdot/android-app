@@ -1,6 +1,6 @@
 <resources>
 
-    <color name="titlebackground">#edd400</color>
+    <color name="titlebackground">#d3bd00</color>
 
     <!-- Base application theme. -->
     <style name="AppTheme"
