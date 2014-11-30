@@ -17,10 +17,9 @@ public class SpacestatusLoader {
     private SpacestatusLoader() {
     }
 
-    public Spacestatus getStatus(){
-        Spacestatus status = new Spacestatus();
-        status.isOpen = true;
-
+    public Spacestatus getStatus() {
+        SpacestatusLoadTask spacestatusLoadTask = new SpacestatusLoadTask();
+        Spacestatus status = spacestatusLoadTask.doInBackground();
         return status;
     }
 }

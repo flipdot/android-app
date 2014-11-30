@@ -27,7 +27,8 @@
             android:id="@+id/reloadStatusButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/doorOpenImage" />
+            android:layout_toRightOf="@+id/doorOpenImage"
+            android:onClick="refreshDoorStatus"/>
     </RelativeLayout>
 
     <TextView

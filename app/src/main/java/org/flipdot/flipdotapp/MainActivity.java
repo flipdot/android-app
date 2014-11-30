@@ -1,15 +1,16 @@
 package org.flipdot.flipdotapp;
 
 import android.app.Activity;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
+
 import org.flipdot.flipdotapp.helpers.FontAwesomeHelper;
 
 
@@ -24,7 +25,7 @@ public class MainActivity extends Activity {
 
         FontAwesomeHelper fontAwesomeHelper = new FontAwesomeHelper(this);
         Button refreshButton = (Button)this.findViewById(R.id.reloadStatusButton);
-        fontAwesomeHelper.setIcon(refreshButton,"\uf021"); // refresh icon
+        fontAwesomeHelper.setIcon(refreshButton, "\uf021"); // refresh icon
 
         updateDoorStatus();
     }
@@ -44,9 +45,15 @@ public class MainActivity extends Activity {
 
     private void updateDoorStatus() {
         Spacestatus status = SpacestatusLoader.getInstance().getStatus();
+        if(status.loadError) return;
+
         int doorOpenImage = status.isOpen ? R.drawable.dooropen : R.drawable.doorclose;
         ImageView spaceOpenImage = (ImageView)this.findViewById(R.id.doorOpenImage);
         spaceOpenImage.setImageResource(doorOpenImage);
+    }
+
+    public void refreshDoorStatus(View view) {
+        updateDoorStatus();
     }
 
     @Override
