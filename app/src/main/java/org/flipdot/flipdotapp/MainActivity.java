@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import org.flipdot.flipdotapp.helpers.FontAwesomeHelper;
+import org.flipdot.flipdotapp.openDoor.OpenDoorConstants;
+import org.flipdot.flipdotapp.openDoor.SshKeyGenerator;
 import org.flipdot.flipdotapp.openDoor.SshOpenDoorTask;
 
 
@@ -29,6 +31,8 @@ public class MainActivity extends Activity {
         fontAwesomeHelper.setIcon(refreshButton, "\uf021"); // refresh icon
 
         updateDoorStatus();
+
+        SshKeyGenerator.ensureKeypairExists();
     }
 
     private void initWebView() {
@@ -86,7 +90,11 @@ public class MainActivity extends Activity {
     }
 
     public void openDoorOnClick(View view) {
-        SshOpenDoorTask sshOpenDoorTask = new SshOpenDoorTask("/sdcard/flipdot_sshkey");
+        SshOpenDoorTask sshOpenDoorTask = new SshOpenDoorTask(OpenDoorConstants.PrivateKeyFilePath);
         sshOpenDoorTask.execute();
+    }
+
+    public void uploadSshKeyOnClick(MenuItem item) {
+        SshKeyGenerator.pushKeyToServer();
     }
 }
