@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import org.flipdot.flipdotapp.helpers.FontAwesomeHelper;
+import org.flipdot.flipdotapp.openDoor.SshOpenDoorTask;
 
 
 public class MainActivity extends Activity {
@@ -82,5 +83,10 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void openDoorOnClick(View view) {
+        SshOpenDoorTask sshOpenDoorTask = new SshOpenDoorTask("/sdcard/flipdot_sshkey");
+        sshOpenDoorTask.execute();
     }
 }

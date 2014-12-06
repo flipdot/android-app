@@ -34,6 +34,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Flipdot Tür"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hackerspace Tür öffnen"
+        android:onClick="openDoorOnClick"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Flipdot Website"/>
     <WebView
         android:id="@+id/webView"
