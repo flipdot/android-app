@@ -44,12 +44,18 @@ public class MainActivity extends Activity {
     }
 
     private void updateDoorStatus() {
-        Spacestatus status = SpacestatusLoader.getInstance().getStatus();
-        if(status.loadError) return;
+        final ImageView spaceOpenImage = (ImageView)this.findViewById(R.id.doorOpenImage);
+        SpacestatusLoadTask task = new SpacestatusLoadTask(){
+            @Override
+            public void onPostExecute(Spacestatus status){
+                if(status.loadError) return;
 
-        int doorOpenImage = status.isOpen ? R.drawable.dooropen : R.drawable.doorclose;
-        ImageView spaceOpenImage = (ImageView)this.findViewById(R.id.doorOpenImage);
-        spaceOpenImage.setImageResource(doorOpenImage);
+                int doorOpenImage = status.isOpen ? R.drawable.dooropen : R.drawable.doorclose;
+                spaceOpenImage.setImageResource(doorOpenImage);
+            }
+        };
+
+        task.execute();
     }
 
     public void refreshDoorStatus(View view) {

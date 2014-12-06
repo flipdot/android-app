@@ -11,6 +11,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
  * Created by daniel on 30.11.14.
  */
 public class SpacestatusLoadTask extends AsyncTask<String,Void,Spacestatus> {
+
     @Override
     protected Spacestatus doInBackground(String... params) {
         Spacestatus status = new Spacestatus();
