@@ -16,6 +16,8 @@ public class SshKeyGenerator {
             File privateKey = new File(OpenDoorConstants.PrivateKeyFilePath);
             if(privateKey.exists()) return;
 
+            new File(OpenDoorConstants.FlipdotRootFolder).mkdirs();
+
             KeyPair keyPair = KeyPair.genKeyPair(jsch, KeyPair.RSA);
             keyPair.writePrivateKey(OpenDoorConstants.PrivateKeyFilePath);
             keyPair.writePublicKey(OpenDoorConstants.PublicKeyFilePath, "flipdot_app");
