@@ -15,6 +15,8 @@ import org.flipdot.flipdotapp.helpers.FontAwesomeHelper;
 import org.flipdot.flipdotapp.openDoor.OpenDoorConstants;
 import org.flipdot.flipdotapp.openDoor.SshKeyGenerator;
 import org.flipdot.flipdotapp.openDoor.SshOpenDoorTask;
+import org.flipdot.flipdotapp.spacestatus.Spacestatus;
+import org.flipdot.flipdotapp.spacestatus.SpacestatusLoadTask;
 
 
 public class MainActivity extends Activity {

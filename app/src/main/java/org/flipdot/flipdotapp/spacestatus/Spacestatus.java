@@ -1,4 +1,4 @@
-package org.flipdot.flipdotapp;
+package org.flipdot.flipdotapp.spacestatus;
 
 /**
  * Created by daniel on 30.11.14.

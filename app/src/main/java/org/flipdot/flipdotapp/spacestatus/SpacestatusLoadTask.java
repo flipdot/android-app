@@ -1,4 +1,4 @@
-package org.flipdot.flipdotapp;
+package org.flipdot.flipdotapp.spacestatus;
 
 import android.os.AsyncTask;
 
