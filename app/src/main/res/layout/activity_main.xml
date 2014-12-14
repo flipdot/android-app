@@ -1,52 +1,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:id="@+id/layoutroot"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Türstatus"/>
-
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/doorOpenImage"
-            android:layout_width="180dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="10dp"
-            android:src="@drawable/doorclose"/>
+        <ImageButton
+            android:id="@+id/openDoorButton"
+            android:layout_width="210dip"
+            android:layout_height="105dip"
+            android:background="@drawable/doorstatus_open"
+            android:onClick="openDoorOnClick"/>
 
-        <Button
-            android:id="@+id/reloadStatusButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/doorOpenImage"
-            android:onClick="refreshDoorStatus"/>
+        <ImageButton
+            android:layout_width="110dip"
+            android:layout_height="105dip"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@+id/openDoorButton"
+            android:onClick="refreshDoorStatus"
+            android:background="@drawable/peopleinspace_mock" />
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Flipdot Tür"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hackerspace Tür öffnen"
-        android:onClick="openDoorOnClick"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Flipdot Website"/>
     <WebView
         android:id="@+id/webView"
+        android:layout_marginTop="10dip"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"></WebView>
 

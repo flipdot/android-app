@@ -5,13 +5,19 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import org.flipdot.flipdotapp.helpers.Font;
 import org.flipdot.flipdotapp.helpers.FontAwesomeHelper;
+import org.flipdot.flipdotapp.helpers.FontHelper;
 import org.flipdot.flipdotapp.openDoor.OpenDoorConstants;
 import org.flipdot.flipdotapp.openDoor.SshKeyGenerator;
 import org.flipdot.flipdotapp.openDoor.SshOpenDoorTask;
@@ -26,15 +32,23 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setFontForElements();
+
         initWebView();
-
-        FontAwesomeHelper fontAwesomeHelper = new FontAwesomeHelper(this);
-        Button refreshButton = (Button)this.findViewById(R.id.reloadStatusButton);
-        fontAwesomeHelper.setIcon(refreshButton, "\uf021"); // refresh icon
-
         updateDoorStatus();
 
         SshKeyGenerator.ensureKeypairExists();
+    }
+
+    private void setFontForElements() {
+        ViewGroup layout = (ViewGroup)findViewById(R.id.layoutroot);
+        for(int i = 0; i < layout.getChildCount(); i++){
+            View view = layout.getChildAt(i);
+            if(view instanceof TextView){
+                TextView textView = (TextView)view;
+                FontHelper.setFont(textView, Font.WhiteRabbit);
+            }
+        }
     }
 
     private void initWebView() {
@@ -51,22 +65,19 @@ public class MainActivity extends Activity {
     }
 
     private void updateDoorStatus() {
-        final ImageView spaceOpenImage = (ImageView)this.findViewById(R.id.doorOpenImage);
+
+        final ImageButton spaceOpenImage = (ImageButton)this.findViewById(R.id.openDoorButton);
         SpacestatusLoadTask task = new SpacestatusLoadTask(){
             @Override
             public void onPostExecute(Spacestatus status){
                 if(status.loadError) return;
 
-                int doorOpenImage = status.isOpen ? R.drawable.dooropen : R.drawable.doorclose;
-                spaceOpenImage.setImageResource(doorOpenImage);
+                int doorOpenImage = status.isOpen ? R.drawable.doorstatus_open : R.drawable.doorstatus_closed;
+                spaceOpenImage.setBackgroundResource(doorOpenImage);
             }
         };
 
         task.execute();
-    }
-
-    public void refreshDoorStatus(View view) {
-        updateDoorStatus();
     }
 
     @Override
@@ -98,5 +109,9 @@ public class MainActivity extends Activity {
 
     public void uploadSshKeyOnClick(MenuItem item) {
         SshKeyGenerator.pushKeyToServer();
+    }
+
+    public void refreshDoorStatus(View view) {
+        this.updateDoorStatus();
     }
 }
