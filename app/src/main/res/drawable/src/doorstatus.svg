@@ -39,7 +39,8 @@
      inkscape:window-height="861"
      inkscape:window-x="0"
      inkscape:window-y="18"
-     inkscape:window-maximized="0">
+     inkscape:window-maximized="0"
+     inkscape:snap-global="false">
     <sodipodi:guide
        orientation="1,0"
        position="20,431.46141"
@@ -84,17 +85,17 @@
        y="692.37488" />
     <text
        xml:space="preserve"
-       style="font-size:56.90144712px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR;font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr"
-       x="17.394743"
-       y="918.54669"
+       style="font-size:74.9769516px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR"
+       x="16.229721"
+       y="882.12048"
        id="text3755"
        sodipodi:linespacing="125%"
        transform="scale(1.0015899,0.99841263)"><tspan
          sodipodi:role="line"
          id="tspan3757"
-         x="17.394743"
-         y="918.54669"
-         style="font-size:56.90144712px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;fill:#ffffff;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR">Door Status</tspan></text>
+         x="16.229721"
+         y="882.12048"
+         style="font-size:74.9769516px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR">Door Status</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -121,17 +122,17 @@
          id="tspan3850">open</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:137.31462097px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f5c500;fill-opacity:1;stroke:none;display:inline;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR"
-       x="13.566478"
-       y="1034.0035"
+       style="font-size:197.47549438px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f5c500;fill-opacity:1;stroke:none;display:inline;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR"
+       x="9.6889219"
+       y="340.54059"
        id="text3755-1"
        sodipodi:linespacing="125%"
-       transform="matrix(1.0015899,0,0,0.99841263,0,-692.36218)"><tspan
+       transform="scale(1.0015899,0.99841263)"><tspan
          sodipodi:role="line"
          id="tspan3757-7"
-         x="13.566478"
-         y="1034.0035"
-         style="font-size:137.31462097px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#f5c500;fill-opacity:1;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR">CLOSED</tspan></text>
+         x="9.6889219"
+         y="340.54059"
+         style="font-size:197.47549438px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#f5c500;fill-opacity:1;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR">CLOSED</tspan></text>
     <g
        id="g3814"
        transform="matrix(1.427301,0,0,1.4227734,595.15515,23)"
@@ -172,16 +173,16 @@
          x="639.82538"
          sodipodi:role="line">close</tspan></text>
     <text
-       transform="matrix(1.0015899,0,0,0.99841263,0,-692.36218)"
+       transform="scale(1.0015899,0.99841263)"
        sodipodi:linespacing="125%"
        id="text3887"
-       y="1034.0035"
-       x="13.566478"
-       style="font-size:137.31462097px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f5c500;fill-opacity:1;stroke:none;display:inline;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR"
+       y="340.54059"
+       x="9.6981955"
+       style="font-size:197.331604px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f5c500;fill-opacity:1;stroke:none;display:inline;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR"
        xml:space="preserve"><tspan
-         style="font-size:137.31462097px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#f5c500;fill-opacity:1;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR"
-         y="1034.0035"
-         x="13.566478"
+         style="font-size:197.331604px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#f5c500;fill-opacity:1;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR"
+         y="340.54059"
+         x="9.6981955"
          id="tspan3889"
          sodipodi:role="line">OPEN</tspan></text>
     <g
