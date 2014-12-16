@@ -1,10 +1,14 @@
 package org.flipdot.flipdotapp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +16,7 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -113,18 +118,38 @@ public class MainActivity extends Activity {
     }
 
     public void openDoorOnClick(View view) {
-        SshOpenDoorTask sshOpenDoorTask = new SshOpenDoorTask(OpenDoorConstants.PrivateKeyFilePath);
-        sshOpenDoorTask.execute();
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Open Door");
+        alert.setMessage("Enter your Pin:");
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setTransformationMethod(new PasswordTransformationMethod());
+        alert.setView(input);
+
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String value = input.getText().toString();
+
+                SshOpenDoorTask sshOpenDoorTask = new SshOpenDoorTask(OpenDoorConstants.PrivateKeyFilePath);
+                sshOpenDoorTask.execute();
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        alert.show();
     }
 
     public void uploadSshKeyOnClick(MenuItem item) {
-        //SshKeyGenerator.pushKeyToServer();
-
         Intent sendMailIntent = new Intent(Intent.ACTION_SEND);
         sendMailIntent.setType("message/rfc822");
-        sendMailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"com@flipdot.org"});
+        sendMailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "com@flipdot.org" });
         sendMailIntent.putExtra(Intent.EXTRA_SUBJECT, "Android App Türzugang");
-        sendMailIntent.putExtra(Intent.EXTRA_TEXT, ":)");
+        sendMailIntent.putExtra(Intent.EXTRA_TEXT, "Hiermit beantrage ich einen Flipdot Tür-Zugang :)");
 
         Uri uri = Uri.parse("file://" + OpenDoorConstants.PublicKeyFilePath);
         sendMailIntent.putExtra(Intent.EXTRA_STREAM, uri);
@@ -132,7 +157,6 @@ public class MainActivity extends Activity {
         try {
             startActivity(Intent.createChooser(sendMailIntent, "Sending mail..."));
         } catch (android.content.ActivityNotFoundException ex) {
-            //Toast.makeText(MyActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
         }
     }
 

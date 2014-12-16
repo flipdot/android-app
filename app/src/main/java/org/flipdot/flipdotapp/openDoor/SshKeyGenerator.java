@@ -25,9 +25,4 @@ public class SshKeyGenerator {
             System.out.println(ex.toString());
         }
     }
-
-    public static void pushKeyToServer() {
-        PushOpenDoorKeyToServerTask task = new PushOpenDoorKeyToServerTask();
-        task.execute();
-    }
 }
