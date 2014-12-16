@@ -13,9 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -40,7 +37,6 @@ public class MainActivity extends Activity {
 
         setFontForElements();
 
-        initWebView();
         updateSpaceStatus();
 
         SshKeyGenerator.ensureKeypairExists();
@@ -57,26 +53,14 @@ public class MainActivity extends Activity {
         }
     }
 
-    private void initWebView() {
-        WebView webView = (WebView)findViewById(R.id.webView);
-        webView.setWebViewClient(new WebViewClient());
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setLoadWithOverviewMode(true);
-        settings.setUseWideViewPort(true);
-        settings.setBuiltInZoomControls(true);
-        settings.setDisplayZoomControls(false);
-
-        webView.loadUrl("http://flipdot.org");
-    }
-
     private void updateSpaceStatus() {
 
         final Context activity = this;
         final ImageButton spaceOpenImage = (ImageButton)this.findViewById(R.id.openDoorButton);
         final TextView peopleCountText = (TextView)this.findViewById(R.id.peopleCountText);
         final ListView onlinePeopleList = (ListView)this.findViewById(R.id.onlinePeopleList);
-                SpacestatusLoadTask task = new SpacestatusLoadTask(){
+        final TextView otherPeopleCount = (TextView)this.findViewById(R.id.otherPeopleCount);
+        SpacestatusLoadTask task = new SpacestatusLoadTask(){
             @Override
             public void onPostExecute(Spacestatus status){
                 if(status.loadError) return;
@@ -87,6 +71,7 @@ public class MainActivity extends Activity {
                 int hackerCount = status.knownHackers.size();
                 int unknownHackerCount = status.unknownHackers;
                 peopleCountText.setText(String.valueOf(hackerCount + unknownHackerCount));
+                otherPeopleCount.setText("und "+unknownHackerCount+" andere ...");
 
                 onlinePeopleList.setAdapter(new KnownHackersAdapter(activity, R.layout.known_hacker_item, status.knownHackers));
             }

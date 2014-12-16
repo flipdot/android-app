@@ -44,12 +44,12 @@
         android:id="@+id/onlinePeopleList"
         android:layout_marginTop="10dip"
         android:layout_width="wrap_content"
-        android:layout_height="200dip"></ListView>
+        android:layout_height="wrap_content"></ListView>
 
-    <WebView
-        android:id="@+id/webView"
-        android:layout_marginTop="10dip"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"></WebView>
+    <TextView
+        android:id="@+id/otherPeopleCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10pt"/>
 
 </LinearLayout>
