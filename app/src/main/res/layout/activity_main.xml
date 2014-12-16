@@ -19,12 +19,26 @@
             android:onClick="openDoorOnClick"/>
 
         <ImageButton
-            android:layout_width="110dip"
-            android:layout_height="105dip"
-            android:layout_marginLeft="10dip"
+        android:layout_width="110dip"
+        android:layout_height="105dip"
+        android:onClick="refreshDoorStatus"
+        android:layout_marginLeft="10dip"
+        android:layout_toRightOf="@+id/openDoorButton"
+        android:background="@drawable/peopleinspace_mock" />
+
+        <TextView
+            android:id="@+id/peopleCountText"
+            android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/openDoorButton"
-            android:onClick="refreshDoorStatus"
-            android:background="@drawable/peopleinspace_mock" />
+            android:layout_marginLeft="10dip"
+            android:layout_width="110dip"
+            android:layout_marginTop="30dip"
+            android:text="546"
+            android:lines="1"
+            android:gravity="center"
+            android:textColor="#f5c500"
+            android:textSize="25pt"/>
+
     </RelativeLayout>
 
     <WebView

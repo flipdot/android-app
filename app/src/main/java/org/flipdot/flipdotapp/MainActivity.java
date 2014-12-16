@@ -9,14 +9,10 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.flipdot.flipdotapp.helpers.Font;
-import org.flipdot.flipdotapp.helpers.FontAwesomeHelper;
 import org.flipdot.flipdotapp.helpers.FontHelper;
 import org.flipdot.flipdotapp.openDoor.OpenDoorConstants;
 import org.flipdot.flipdotapp.openDoor.SshKeyGenerator;
@@ -46,7 +42,7 @@ public class MainActivity extends Activity {
             View view = layout.getChildAt(i);
             if(view instanceof TextView){
                 TextView textView = (TextView)view;
-                FontHelper.setFont(textView, Font.WhiteRabbit);
+                FontHelper.setFont(textView, Font.IsocpeurRegular);
             }
         }
     }
