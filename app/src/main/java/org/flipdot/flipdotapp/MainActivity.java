@@ -1,6 +1,9 @@
 package org.flipdot.flipdotapp;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +13,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.flipdot.flipdotapp.helpers.Font;
@@ -17,6 +21,7 @@ import org.flipdot.flipdotapp.helpers.FontHelper;
 import org.flipdot.flipdotapp.openDoor.OpenDoorConstants;
 import org.flipdot.flipdotapp.openDoor.SshKeyGenerator;
 import org.flipdot.flipdotapp.openDoor.SshOpenDoorTask;
+import org.flipdot.flipdotapp.spacestatus.KnownHackersAdapter;
 import org.flipdot.flipdotapp.spacestatus.Spacestatus;
 import org.flipdot.flipdotapp.spacestatus.SpacestatusLoadTask;
 
@@ -62,9 +67,11 @@ public class MainActivity extends Activity {
 
     private void updateSpaceStatus() {
 
+        final Context activity = this;
         final ImageButton spaceOpenImage = (ImageButton)this.findViewById(R.id.openDoorButton);
         final TextView peopleCountText = (TextView)this.findViewById(R.id.peopleCountText);
-        SpacestatusLoadTask task = new SpacestatusLoadTask(){
+        final ListView onlinePeopleList = (ListView)this.findViewById(R.id.onlinePeopleList);
+                SpacestatusLoadTask task = new SpacestatusLoadTask(){
             @Override
             public void onPostExecute(Spacestatus status){
                 if(status.loadError) return;
@@ -75,6 +82,8 @@ public class MainActivity extends Activity {
                 int hackerCount = status.knownHackers.size();
                 int unknownHackerCount = status.unknownHackers;
                 peopleCountText.setText(String.valueOf(hackerCount + unknownHackerCount));
+
+                onlinePeopleList.setAdapter(new KnownHackersAdapter(activity, R.layout.known_hacker_item, status.knownHackers));
             }
         };
 
@@ -109,7 +118,22 @@ public class MainActivity extends Activity {
     }
 
     public void uploadSshKeyOnClick(MenuItem item) {
-        SshKeyGenerator.pushKeyToServer();
+        //SshKeyGenerator.pushKeyToServer();
+
+        Intent sendMailIntent = new Intent(Intent.ACTION_SEND);
+        sendMailIntent.setType("message/rfc822");
+        sendMailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"com@flipdot.org"});
+        sendMailIntent.putExtra(Intent.EXTRA_SUBJECT, "Android App Türzugang");
+        sendMailIntent.putExtra(Intent.EXTRA_TEXT, ":)");
+
+        Uri uri = Uri.parse("file://" + OpenDoorConstants.PublicKeyFilePath);
+        sendMailIntent.putExtra(Intent.EXTRA_STREAM, uri);
+
+        try {
+            startActivity(Intent.createChooser(sendMailIntent, "Sending mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            //Toast.makeText(MyActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void refreshDoorStatus(View view) {
