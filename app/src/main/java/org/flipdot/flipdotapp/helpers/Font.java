@@ -13,4 +13,6 @@ public class Font {
     public static Font WhiteRabbit = new Font("fonts/whitrabt.ttf");
     public static Font FontAwesome = new Font("fonts/fontawesome-webfont.ttf");
     public static Font IsocpeurRegular = new Font("fonts/isocpeur_regular.ttf");
+
+    public static Font Default = IsocpeurRegular;
 }

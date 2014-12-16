@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
             View view = layout.getChildAt(i);
             if(view instanceof TextView){
                 TextView textView = (TextView)view;
-                FontHelper.setFont(textView, Font.IsocpeurRegular);
+                FontHelper.setFont(textView, Font.Default);
             }
         }
     }

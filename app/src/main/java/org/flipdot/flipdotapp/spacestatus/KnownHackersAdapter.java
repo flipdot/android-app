@@ -1,6 +1,7 @@
 package org.flipdot.flipdotapp.spacestatus;
 
 import android.content.Context;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import org.flipdot.flipdotapp.R;
+import org.flipdot.flipdotapp.helpers.Font;
+import org.flipdot.flipdotapp.helpers.FontHelper;
 
 import java.util.ArrayList;
 
@@ -40,6 +43,8 @@ public class KnownHackersAdapter extends ArrayAdapter<KnownHacker> {
 
         TextView nick = (TextView)rowView.findViewById(R.id.knownHackerNick);
         nick.setText(knownHacker.Nick);
+        nick.setTextSize(TypedValue.COMPLEX_UNIT_PT, 10);
+        FontHelper.setFont(nick, Font.Default);
 
         return rowView;
     }
