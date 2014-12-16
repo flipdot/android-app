@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
         setFontForElements();
 
         initWebView();
-        updateDoorStatus();
+        updateSpaceStatus();
 
         SshKeyGenerator.ensureKeypairExists();
     }
@@ -60,9 +60,10 @@ public class MainActivity extends Activity {
         webView.loadUrl("http://flipdot.org");
     }
 
-    private void updateDoorStatus() {
+    private void updateSpaceStatus() {
 
         final ImageButton spaceOpenImage = (ImageButton)this.findViewById(R.id.openDoorButton);
+        final TextView peopleCountText = (TextView)this.findViewById(R.id.peopleCountText);
         SpacestatusLoadTask task = new SpacestatusLoadTask(){
             @Override
             public void onPostExecute(Spacestatus status){
@@ -70,6 +71,10 @@ public class MainActivity extends Activity {
 
                 int doorOpenImage = status.isOpen ? R.drawable.doorstatus_open : R.drawable.doorstatus_closed;
                 spaceOpenImage.setBackgroundResource(doorOpenImage);
+
+                int hackerCount = status.knownHackers.size();
+                int unknownHackerCount = status.unknownHackers;
+                peopleCountText.setText(String.valueOf(hackerCount + unknownHackerCount));
             }
         };
 
@@ -108,6 +113,6 @@ public class MainActivity extends Activity {
     }
 
     public void refreshDoorStatus(View view) {
-        this.updateDoorStatus();
+        this.updateSpaceStatus();
     }
 }
