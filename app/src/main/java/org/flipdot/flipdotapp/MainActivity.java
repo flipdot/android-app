@@ -71,8 +71,15 @@ public class MainActivity extends Activity {
                 int hackerCount = status.knownHackers.size();
                 int unknownHackerCount = status.unknownHackers;
                 peopleCountText.setText(String.valueOf(hackerCount + unknownHackerCount));
-                otherPeopleCount.setText("und "+unknownHackerCount+" andere ...");
 
+                // make the elements invisible
+                if(!status.isOpen){
+                    onlinePeopleList.setVisibility(View.GONE);
+                    otherPeopleCount.setVisibility(View.GONE);
+                    return;
+                }
+
+                otherPeopleCount.setText("und "+unknownHackerCount+" andere ...");
                 onlinePeopleList.setAdapter(new KnownHackersAdapter(activity, R.layout.known_hacker_item, status.knownHackers));
             }
         };
