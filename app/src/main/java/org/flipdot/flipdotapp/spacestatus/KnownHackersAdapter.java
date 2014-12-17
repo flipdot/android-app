@@ -43,7 +43,6 @@ public class KnownHackersAdapter extends ArrayAdapter<KnownHacker> {
 
         TextView nick = (TextView)rowView.findViewById(R.id.knownHackerNick);
         nick.setText(knownHacker.Nick);
-        nick.setTextSize(TypedValue.COMPLEX_UNIT_PT, 10);
         FontHelper.setFont(nick, Font.Default);
 
         return rowView;
