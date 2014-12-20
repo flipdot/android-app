@@ -1,11 +1,14 @@
 package org.flipdot.flipdotapp;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
@@ -18,6 +21,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.auth.GoogleAuthException;
+import com.google.android.gms.auth.GoogleAuthUtil;
+import com.google.android.gms.auth.UserRecoverableAuthException;
+import com.google.android.gms.common.AccountPicker;
 
 import org.flipdot.flipdotapp.helpers.Font;
 import org.flipdot.flipdotapp.helpers.FontHelper;
@@ -27,6 +36,8 @@ import org.flipdot.flipdotapp.openDoor.SshOpenDoorTask;
 import org.flipdot.flipdotapp.spacestatus.KnownHackersAdapter;
 import org.flipdot.flipdotapp.spacestatus.Spacestatus;
 import org.flipdot.flipdotapp.spacestatus.SpacestatusLoadTask;
+
+import java.io.IOException;
 
 
 public class MainActivity extends Activity {
@@ -41,6 +52,9 @@ public class MainActivity extends Activity {
         updateSpaceStatus();
 
         SshKeyGenerator.ensureKeypairExists();
+
+        FlipdotAuthentication authentication = new FlipdotAuthentication(this);
+        authentication.authenticate();
     }
 
     private void setFontForElements() {
