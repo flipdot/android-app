@@ -42,6 +42,8 @@ import java.io.IOException;
 
 public class MainActivity extends Activity {
 
+    private FlipdotAuthentication authentication;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +55,8 @@ public class MainActivity extends Activity {
 
         SshKeyGenerator.ensureKeypairExists();
 
-        FlipdotAuthentication authentication = new FlipdotAuthentication(this);
-        authentication.authenticate();
+        this.authentication = new FlipdotAuthentication(this);
+        this.authentication.authenticate();
     }
 
     private void setFontForElements() {
@@ -171,5 +173,10 @@ public class MainActivity extends Activity {
 
     public void refreshDoorStatus(View view) {
         this.updateSpaceStatus();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        this.authentication.onActivityResult(requestCode, resultCode, data);
     }
 }
