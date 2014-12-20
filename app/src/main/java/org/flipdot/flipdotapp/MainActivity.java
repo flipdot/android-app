@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
         SshKeyGenerator.ensureKeypairExists();
 
         this.authentication = new FlipdotAuthentication(this);
-        this.authentication.authenticate();
+        //this.authentication.authenticate();
     }
 
     private void setFontForElements() {
