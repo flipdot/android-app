@@ -53,6 +53,9 @@ public class FlipdotAuthentication {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) {
+            return;
+        }
         switch (requestCode){
             case SELECT_ACCOUNT_REQUEST_CODE:{
                 this.username = data.getExtras().getString("authAccount");
