@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'Flipdot'
+            keyPassword System.getenv('KEYSTOREPWD')
+            storeFile System.getenv('KEYSTOREPATH') // dafuq usually here is file('/my/path')
+            storePassword System.getenv('KEYPWD')
+        }
+    }
     compileSdkVersion 16
     buildToolsVersion "21.1.1"
 
@@ -15,6 +23,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //signingConfig signingConfigs.config
         }
     }
 }
