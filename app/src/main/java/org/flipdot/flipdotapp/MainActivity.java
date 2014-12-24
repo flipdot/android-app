@@ -1,14 +1,11 @@
 package org.flipdot.flipdotapp;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
@@ -21,12 +18,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.auth.GoogleAuthException;
-import com.google.android.gms.auth.GoogleAuthUtil;
-import com.google.android.gms.auth.UserRecoverableAuthException;
-import com.google.android.gms.common.AccountPicker;
 
 import org.flipdot.flipdotapp.helpers.Font;
 import org.flipdot.flipdotapp.helpers.FontHelper;
@@ -37,16 +28,20 @@ import org.flipdot.flipdotapp.spacestatus.KnownHackersAdapter;
 import org.flipdot.flipdotapp.spacestatus.Spacestatus;
 import org.flipdot.flipdotapp.spacestatus.SpacestatusLoadTask;
 
-import java.io.IOException;
-
 
 public class MainActivity extends Activity {
+
+    public static MainActivity instance;
 
     private FlipdotAuthentication authentication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MainActivity.instance = this;
+
+        AppSettings.load();
+
         setContentView(R.layout.activity_main);
 
         setFontForElements();
@@ -55,7 +50,7 @@ public class MainActivity extends Activity {
 
         SshKeyGenerator.ensureKeypairExists();
 
-        this.authentication = new FlipdotAuthentication(this);
+        this.authentication = new FlipdotAuthentication();
         this.authentication.authenticate();
     }
 
@@ -178,5 +173,10 @@ public class MainActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         this.authentication.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onDestroy() {
+        AppSettings.save();
     }
 }
