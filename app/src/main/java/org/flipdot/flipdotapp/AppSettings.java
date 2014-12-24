@@ -12,7 +12,7 @@ public class AppSettings {
 
     private Activity activity;
     private SharedPreferences preferences;
-    SharedPreferences.Editor editor;
+    private SharedPreferences.Editor editor;
 
     public AppSettings(Activity activity) {
         this.activity = activity;
