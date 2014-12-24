@@ -27,6 +27,7 @@ public class FlipdotAuthentication {
             return;
         }
 
+        this.username = selectedGoogleAccountUsername;
         getTokenAsync(selectedGoogleAccountUsername);
     }
 
