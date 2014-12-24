@@ -1,5 +1,6 @@
 package org.flipdot.flipdotapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -9,20 +10,22 @@ import android.content.SharedPreferences;
 public class AppSettings {
     private final static String appSettingsFileName = "FlipdotAppSettings";
 
-    public static String selectedGoogleAccountUsername;
+    private Activity activity;
+    private SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
-    public static void load() {
-        SharedPreferences preferences = MainActivity.instance.getSharedPreferences(appSettingsFileName, Context.MODE_PRIVATE);
-
-        selectedGoogleAccountUsername = preferences.getString("selectedGoogleAccountUsername", null);
+    public AppSettings(Activity activity) {
+        this.activity = activity;
+        this.preferences = this.activity.getSharedPreferences(appSettingsFileName, Context.MODE_PRIVATE);
+        this.editor = this.preferences.edit();
     }
 
-    public static void save() {
-        SharedPreferences preferences = MainActivity.instance.getSharedPreferences(appSettingsFileName, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
+    public String getSelectedGoogleAccountUsername() {
+        return this.preferences.getString("selectedGoogleAccountUsername", null);
+    }
 
-        editor.putString("selectedGoogleAccountUsername", selectedGoogleAccountUsername);
-
-        editor.commit();
+    public void setSelectedGoogleAccountUsername(String selectedGoogleAccountUsername) {
+        this.editor.putString("selectedGoogleAccountUsername", selectedGoogleAccountUsername);
+        this.editor.commit();
     }
 }

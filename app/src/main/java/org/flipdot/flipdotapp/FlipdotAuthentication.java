@@ -20,17 +20,18 @@ public class FlipdotAuthentication {
     private final static int AUTHENTICATE_GOOGLE_REQUEST_CODE = 1235;
 
     public void authenticate(){
-        if(AppSettings.selectedGoogleAccountUsername == null) {
+        String selectedGoogleAccountUsername = MainActivity.instance.settings.getSelectedGoogleAccountUsername();
+        if(selectedGoogleAccountUsername == null) {
             Intent intent = AccountPicker.newChooseAccountIntent(null, null, new String[]{"com.google"}, false, null, null, null, null);
             MainActivity.instance.startActivityForResult(intent, SELECT_ACCOUNT_REQUEST_CODE);
             return;
         }
 
-        getTokenAsync(AppSettings.selectedGoogleAccountUsername);
+        getTokenAsync(selectedGoogleAccountUsername);
     }
 
     private void getTokenAsync(final String username) {
-        AppSettings.selectedGoogleAccountUsername = username;
+        MainActivity.instance.settings.setSelectedGoogleAccountUsername(username);
         AsyncTask task = new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] params) {

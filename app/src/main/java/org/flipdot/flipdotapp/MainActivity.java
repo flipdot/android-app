@@ -32,15 +32,15 @@ import org.flipdot.flipdotapp.spacestatus.SpacestatusLoadTask;
 public class MainActivity extends Activity {
 
     public static MainActivity instance;
+    public AppSettings settings;
 
     private FlipdotAuthentication authentication;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MainActivity.instance = this;
-
-        AppSettings.load();
 
         setContentView(R.layout.activity_main);
 
@@ -50,6 +50,7 @@ public class MainActivity extends Activity {
 
         SshKeyGenerator.ensureKeypairExists();
 
+        this.settings = new AppSettings(this);
         this.authentication = new FlipdotAuthentication();
         this.authentication.authenticate();
     }
@@ -173,10 +174,5 @@ public class MainActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         this.authentication.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    protected void onStop() {
-        AppSettings.save();
     }
 }
