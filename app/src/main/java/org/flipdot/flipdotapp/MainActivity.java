@@ -176,7 +176,7 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onStop() {
         AppSettings.save();
     }
 }
