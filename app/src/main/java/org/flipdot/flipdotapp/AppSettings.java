@@ -34,7 +34,7 @@ public class AppSettings {
     }
 
     public void setGcmId(String gcmId) {
-        this.editor.putString("selectedGoogleAccountUsername", gcmId);
+        this.editor.putString("GcmId", gcmId);
         this.editor.commit();
     }
 }
