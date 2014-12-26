@@ -27,6 +27,7 @@ public class GcmRegistration {
         String storedId = this.settings.getGcmId();
         if(storedId == null) {
             gcmRegisterAsync();
+            return;
         }
 
         this.onRegisterEnsured(storedId);

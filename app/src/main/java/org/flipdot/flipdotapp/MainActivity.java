@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import org.flipdot.flipdotapp.helpers.Font;
 import org.flipdot.flipdotapp.helpers.FontHelper;
+import org.flipdot.flipdotapp.notifications.GcmRegistration;
 import org.flipdot.flipdotapp.openDoor.OpenDoorConstants;
 import org.flipdot.flipdotapp.openDoor.SshKeyGenerator;
 import org.flipdot.flipdotapp.openDoor.SshOpenDoorTask;
@@ -42,17 +43,17 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         MainActivity.instance = this;
 
-        setContentView(R.layout.activity_main);
-
-        setFontForElements();
-
-        updateSpaceStatus();
-
-        SshKeyGenerator.ensureKeypairExists();
-
         this.settings = new AppSettings(this);
         this.authentication = new FlipdotAuthentication();
+
+        setContentView(R.layout.activity_main);
+        setFontForElements();
+
+        SshKeyGenerator.ensureKeypairExists();
+        this.ensureGcmRegistration();
         this.authentication.authenticate();
+
+        updateSpaceStatus();
     }
 
     private void setFontForElements() {
@@ -169,6 +170,19 @@ public class MainActivity extends Activity {
 
     public void refreshDoorStatus(View view) {
         this.updateSpaceStatus();
+    }
+
+    private void ensureGcmRegistration() {
+        GcmRegistration registration = new GcmRegistration(this.settings, this){
+            @Override
+            public void onRegisterEnsured(String gcmId) {
+                String xxxx = gcmId;
+                if (xxxx.isEmpty()){
+
+                }
+            }
+        };
+        registration.ensureRegistered();
     }
 
     @Override
