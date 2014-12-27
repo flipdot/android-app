@@ -50,8 +50,7 @@ public class MainActivity extends Activity {
         setFontForElements();
 
         SshKeyGenerator.ensureKeypairExists();
-        this.ensureGcmRegistration();
-        this.authentication.authenticate();
+        this.registerGcm();
 
         updateSpaceStatus();
     }
@@ -172,14 +171,14 @@ public class MainActivity extends Activity {
         this.updateSpaceStatus();
     }
 
-    private void ensureGcmRegistration() {
+    private void registerGcm() {
         GcmRegistration registration = new GcmRegistration(this.settings, this){
             @Override
             public void onRegisterEnsured(String gcmId) {
-                String xxxx = gcmId;
-                if (xxxx.isEmpty()){
+                if(gcmId == null) return;
 
-                }
+                MainActivity.this.authentication.gcmId = gcmId;
+                MainActivity.this.authentication.authenticate();
             }
         };
         registration.ensureRegistered();
