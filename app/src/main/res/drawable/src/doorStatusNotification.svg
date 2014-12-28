@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="360"
+   height="360"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="doorStatusNotification.svg"
+   inkscape:export-filename="/home/daniel/AndroidStudioProjects/FlipdotApp/app/src/main/res/drawable/doorstatus_notification_close.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#005a9f"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="218.85237"
+     inkscape:cy="176.64609"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1596"
+     inkscape:window-height="757"
+     inkscape:window-x="0"
+     inkscape:window-y="36"
+     inkscape:window-maximized="0"
+     inkscape:snap-global="false">
+    <sodipodi:guide
+       orientation="1,0"
+       position="20,431.46141"
+       id="guide3854" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="340,368.703"
+       id="guide3858" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="-370,20"
+       id="guide3860" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="-630,340"
+       id="guide3862" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="base"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-692.36218)"
+     style="display:inline">
+    <rect
+       style="fill:#005a9f;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="rect2985"
+       width="359.88821"
+       height="359.80441"
+       x="0.12637052"
+       y="692.39697"
+       inkscape:export-filename="/home/daniel/AndroidStudioProjects/FlipdotApp/app/src/main/res/drawable/doorstatus_notification_open.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="closed"
+     style="display:none">
+    <text
+       xml:space="preserve"
+       style="font-size:113.89871979px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR"
+       x="14.538892"
+       y="340.54059"
+       id="text3755-1"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0015899,0.99841263)"><tspan
+         sodipodi:role="line"
+         id="tspan3757-7"
+         x="14.538892"
+         y="340.54059"
+         style="font-size:113.89871979px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR">CLOSED</tspan></text>
+    <g
+       style="fill:#f5c500;fill-opacity:1;display:inline"
+       id="g3798"
+       transform="matrix(2.3968516,0,0,2.3892485,103.72499,20)">
+      <path
+         id="path3800"
+         d="M 59.646,32.327 H 57.288 C 57.305,26.141 56.305,14.884 49.593,7.386 45.207,2.485 39.229,0 31.823,0 24.417,0 18.439,2.485 14.053,7.386 7.341,14.884 6.341,26.142 6.358,32.327 H 4 c -2.209,0 -4,1.791 -4,4 v 50.472 c 0,2.209 1.791,4 4,4 h 55.646 c 2.209,0 4,-1.791 4,-4 V 36.327 c 0,-2.209 -1.791,-4 -4,-4 z M 20.03,12.704 C 22.871,9.539 26.729,8 31.823,8 c 5.094,0 8.952,1.539 11.793,4.704 4.963,5.528 5.684,14.626 5.666,19.623 H 14.364 C 14.347,27.33 15.067,18.232 20.03,12.704 z M 55.646,82.799 H 8 V 40.327 h 47.646 v 42.472 z"
+         inkscape:connector-curvature="0"
+         style="fill:#f5c500;fill-opacity:1" />
+      <path
+         id="path3802"
+         d="m 37.051,61.487 c 0.735,-1.131 1.762,-3.082 1.762,-5.16 0,-3.732 -2.418,-7.697 -6.9,-7.697 -4.481,0 -6.9,3.965 -6.9,7.697 0,2.084 1.06,4.039 1.821,5.174 l -3.938,10.193 c -0.238,0.615 -0.157,1.307 0.216,1.852 0.373,0.543 0.99,0.869 1.648,0.869 h 14.304 c 0.657,0 1.271,-0.324 1.646,-0.865 0.373,-0.541 0.457,-1.23 0.225,-1.846 L 37.051,61.487 z m -9.374,8.928 3.282,-8.498 c 0.265,-0.682 0.131,-1.455 -0.339,-2.014 -0.418,-0.496 -1.61,-2.221 -1.61,-3.576 0,-0.037 0.079,-3.697 2.901,-3.697 2.821,0 2.9,3.66 2.9,3.697 0,1.373 -1.155,3.105 -1.557,3.598 -0.455,0.555 -0.579,1.311 -0.324,1.98 l 3.231,8.51 h -8.484 z"
+         inkscape:connector-curvature="0"
+         style="fill:#f5c500;fill-opacity:1" />
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     inkscape:label="open"
+     id="g3873"
+     inkscape:groupmode="layer">
+    <g
+       id="g3814"
+       transform="matrix(2.4575117,0,0,2.4497161,101.79215,20)"
+       style="fill:#f5c500;fill-opacity:1;display:inline">
+      <path
+         id="path3816"
+         d="m 59.648,32.327 h -45.3 C 14.333,26.783 15.345,17.94 20.016,12.721 22.858,9.544 26.722,8 31.824,8 c 7.54,0 12.531,3.468 15.261,10.603 0.791,2.063 3.1,3.097 5.166,2.307 2.063,-0.79 3.097,-3.103 2.308,-5.166 C 50.616,5.444 42.756,0 31.824,0 24.419,0 18.44,2.485 14.054,7.386 7.342,14.884 6.344,26.142 6.36,32.327 H 4 c -2.209,0 -4,1.791 -4,4 v 50.472 c 0,2.209 1.791,4 4,4 h 55.648 c 2.209,0 4,-1.791 4,-4 V 36.327 c 0,-2.209 -1.791,-4 -4,-4 z m -4,50.472 H 8 V 40.327 h 47.648 v 42.472 z"
+         inkscape:connector-curvature="0"
+         style="fill:#f5c500;fill-opacity:1" />
+      <path
+         id="path3818"
+         d="m 24.76,74.415 h 14.305 c 0.657,0 1.271,-0.324 1.646,-0.865 0.373,-0.541 0.457,-1.23 0.225,-1.846 L 37.053,61.487 c 0.735,-1.131 1.762,-3.082 1.762,-5.16 0,-3.732 -2.418,-7.697 -6.9,-7.697 -4.481,0 -6.9,3.965 -6.9,7.697 0,2.084 1.059,4.037 1.82,5.174 l -3.938,10.193 c -0.238,0.615 -0.157,1.307 0.216,1.852 0.37,0.542 0.988,0.869 1.647,0.869 z m 5.861,-14.512 c -0.418,-0.496 -1.609,-2.221 -1.609,-3.576 0,-0.037 0.078,-3.697 2.9,-3.697 2.821,0 2.9,3.66 2.9,3.697 0,1.373 -1.155,3.105 -1.557,3.598 -0.455,0.555 -0.579,1.311 -0.324,1.98 l 3.231,8.51 h -8.487 l 3.283,-8.498 c 0.266,-0.682 0.133,-1.456 -0.337,-2.014 z"
+         inkscape:connector-curvature="0"
+         style="fill:#f5c500;fill-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:113.89871979px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR"
+       x="65.926788"
+       y="340.54062"
+       id="text3755-1-7"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0015899,0.99841263)"><tspan
+         sodipodi:role="line"
+         id="tspan3757-7-0"
+         x="65.926788"
+         y="340.54062"
+         style="font-size:113.89871979px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:ISOCPEUR;-inkscape-font-specification:ISOCPEUR">OPEN</tspan></text>
+  </g>
+</svg>
