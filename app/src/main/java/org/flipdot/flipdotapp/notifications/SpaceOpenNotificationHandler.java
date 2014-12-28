@@ -8,7 +8,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 
 import org.flipdot.flipdotapp.MainActivity;
 import org.flipdot.flipdotapp.R;
@@ -36,7 +35,7 @@ public class SpaceOpenNotificationHandler extends NotificationHandler {
                 header = "hackerspace --> closed";
                 message = "the hackerspace is now closed";
             } else {
-                return;
+                throw new RuntimeException("invalid space status: "+newStatus);
             }
 
             Bitmap image = BitmapFactory.decodeResource(context.getResources(), newStatusImage);
@@ -55,7 +54,7 @@ public class SpaceOpenNotificationHandler extends NotificationHandler {
             final int NOTIFICATION_ID = 1;
             notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
         } catch (Exception ex){
-            Log.e("ERROR", ex.toString());
+            throw new RuntimeException(ex);
         }
     }
 }

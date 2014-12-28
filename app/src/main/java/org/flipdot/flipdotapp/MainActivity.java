@@ -22,14 +22,12 @@ import android.widget.TextView;
 import org.flipdot.flipdotapp.helpers.Font;
 import org.flipdot.flipdotapp.helpers.FontHelper;
 import org.flipdot.flipdotapp.notifications.GcmRegistration;
-import org.flipdot.flipdotapp.notifications.SpaceOpenNotificationHandler;
 import org.flipdot.flipdotapp.openDoor.OpenDoorConstants;
 import org.flipdot.flipdotapp.openDoor.SshKeyGenerator;
 import org.flipdot.flipdotapp.openDoor.SshOpenDoorTask;
 import org.flipdot.flipdotapp.spacestatus.KnownHackersAdapter;
 import org.flipdot.flipdotapp.spacestatus.Spacestatus;
 import org.flipdot.flipdotapp.spacestatus.SpacestatusLoadTask;
-import org.json.JSONObject;
 
 
 public class MainActivity extends Activity {
@@ -166,6 +164,7 @@ public class MainActivity extends Activity {
         try {
             startActivity(Intent.createChooser(sendMailIntent, "Sending mail..."));
         } catch (android.content.ActivityNotFoundException ex) {
+            throw new RuntimeException(ex);
         }
     }
 

@@ -57,7 +57,7 @@ public class FlipdotAuthentication {
                     return null;
                 }
                 catch (Exception ex) {
-                    return null;
+                    throw new RuntimeException(ex);
                 }
             }
         };
@@ -96,7 +96,6 @@ public class FlipdotAuthentication {
             ResponseHandler<String> responseHandler = new BasicResponseHandler();
             String responseString = new DefaultHttpClient().execute(httpPost, responseHandler);
         } catch(Exception ex) {
-            Log.e("ERROR", ex.toString());
         }
     }
 

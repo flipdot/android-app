@@ -26,18 +26,19 @@ public class HandleNotificationService extends IntentService {
         try {
             paramters = new JSONObject(paramsJson);
         } catch (JSONException ex) {
-            return;
+            throw new RuntimeException(ex);
         }
 
 
         if(action == null || paramters == null) {
-            return;
+            throw new RuntimeException("invalid push notification: HandleNotificationService.onHandleIntent has no action or params");
         }
 
         NotificationHandler handler;
         if(action.equals("spaceStatusChanged")) {
             handler = new SpaceOpenNotificationHandler();
         } else {
+            // don't throw an exception because maybe the server is newer than this app version
             return;
         }
 

@@ -25,7 +25,7 @@ public class SshOpenDoorTask extends AsyncTask<String,Void,Object> {
         try {
             this._jsch.addIdentity(publicKey);
         }  catch (Exception ex){
-            System.out.println(ex.toString());
+            throw new RuntimeException(ex);
         }
     }
 
@@ -46,7 +46,7 @@ public class SshOpenDoorTask extends AsyncTask<String,Void,Object> {
             channel.setOutputStream(System.out);
             channel.connect(5000);
         } catch (Exception ex) {
-            System.out.println(ex.toString());
+            throw new RuntimeException(ex);
         }
 
         return null;

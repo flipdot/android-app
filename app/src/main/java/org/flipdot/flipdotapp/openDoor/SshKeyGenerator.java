@@ -22,7 +22,7 @@ public class SshKeyGenerator {
             keyPair.writePrivateKey(OpenDoorConstants.PrivateKeyFilePath);
             keyPair.writePublicKey(OpenDoorConstants.PublicKeyFilePath, "flipdot_app");
         } catch(Exception ex){
-            System.out.println(ex.toString());
+            throw new RuntimeException(ex);
         }
     }
 }

@@ -43,7 +43,7 @@ public class GcmRegistration {
                     String gcmId = gcm.register(GCM_APP_ID);
                     return gcmId;
                 } catch (IOException ex) {
-                    return null;
+                    throw new RuntimeException(ex);
                 }
             }
 

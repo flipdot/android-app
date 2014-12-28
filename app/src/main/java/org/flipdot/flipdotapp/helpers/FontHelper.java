@@ -2,7 +2,6 @@ package org.flipdot.flipdotapp.helpers;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.widget.TextView;
 
 import java.util.Hashtable;
@@ -27,9 +26,7 @@ public class FontHelper {
                             assetPath);
                     cache.put(assetPath, t);
                 } catch (Exception e) {
-                    Log.e("Typefaces", "Could not get typeface '" + assetPath
-                            + "' because " + e.getMessage());
-                    return null;
+                    throw new RuntimeException(e);
                 }
             }
             return cache.get(assetPath);
