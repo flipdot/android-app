@@ -22,12 +22,14 @@ import android.widget.TextView;
 import org.flipdot.flipdotapp.helpers.Font;
 import org.flipdot.flipdotapp.helpers.FontHelper;
 import org.flipdot.flipdotapp.notifications.GcmRegistration;
+import org.flipdot.flipdotapp.notifications.SpaceOpenNotificationHandler;
 import org.flipdot.flipdotapp.openDoor.OpenDoorConstants;
 import org.flipdot.flipdotapp.openDoor.SshKeyGenerator;
 import org.flipdot.flipdotapp.openDoor.SshOpenDoorTask;
 import org.flipdot.flipdotapp.spacestatus.KnownHackersAdapter;
 import org.flipdot.flipdotapp.spacestatus.Spacestatus;
 import org.flipdot.flipdotapp.spacestatus.SpacestatusLoadTask;
+import org.json.JSONObject;
 
 
 public class MainActivity extends Activity {
@@ -53,6 +55,14 @@ public class MainActivity extends Activity {
         this.registerGcm();
 
         updateSpaceStatus();
+
+        try {
+            SpaceOpenNotificationHandler tesHandler = new SpaceOpenNotificationHandler();
+            tesHandler.context = this;
+            tesHandler.HandleNotification(new JSONObject("{\"newStatus\":\"open\"}"));
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     private void setFontForElements() {
