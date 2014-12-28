@@ -23,14 +23,16 @@ public class SpaceOpenNotificationHandler extends NotificationHandler {
         try {
             String newStatus = parameters.getString("newStatus");
 
-            int newStatusImage;
+            int newStatusImage, newStatusImageSmall;
             String header, message;
             if(newStatus.equals("open")) {
                 newStatusImage = R.drawable.doorstatus_notification_open;
+                newStatusImageSmall = R.drawable.doorstatus_notification_small_open;
                 header = "hackerspace --> open";
                 message = "the hackerspace is now open";
             } else if(newStatus.equals("close")) {
                 newStatusImage = R.drawable.doorstatus_notification_close;
+                newStatusImageSmall = R.drawable.doorstatus_notification_small_close;
                 header = "hackerspace --> closed";
                 message = "the hackerspace is now closed";
             } else {
@@ -38,12 +40,11 @@ public class SpaceOpenNotificationHandler extends NotificationHandler {
             }
 
             Bitmap image = BitmapFactory.decodeResource(context.getResources(), newStatusImage);
-
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             PendingIntent mainActivityIntent = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), 0);
 
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context)
-              .setSmallIcon(newStatusImage)
+              .setSmallIcon(newStatusImageSmall)
               .setLargeIcon(image)
               .setContentTitle(header)
               .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
