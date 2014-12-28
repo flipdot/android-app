@@ -55,14 +55,6 @@ public class MainActivity extends Activity {
         this.registerGcm();
 
         updateSpaceStatus();
-
-        try {
-            SpaceOpenNotificationHandler tesHandler = new SpaceOpenNotificationHandler();
-            tesHandler.context = this;
-            tesHandler.HandleNotification(new JSONObject("{\"newStatus\":\"open\"}"));
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        }
     }
 
     private void setFontForElements() {
