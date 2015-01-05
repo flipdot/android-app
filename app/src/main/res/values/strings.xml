@@ -4,5 +4,6 @@
     <string name="app_name">Flipdot Hackerspace Kassel</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_flipdot_irc_control">flipdot_irc_control</string>
 
 </resources>
