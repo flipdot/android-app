@@ -61,7 +61,8 @@ public class FlipdotIrcControl extends LinearLayout {
                         long time = ircEntry.getLong("time");
                         String msg = ircEntry.getString("msg");
 
-                        IrcEntry entry = new IrcEntry(msg, new Date(time), new IrcUser(from));
+                        long unixMilliseconds = time * 1000L; // x 1000 because the date ctor expects milliseconds, not seconds
+                        IrcEntry entry = new IrcEntry(msg, new Date(unixMilliseconds), new IrcUser(from));
                         ircEntries.add(entry);
                     }
 
