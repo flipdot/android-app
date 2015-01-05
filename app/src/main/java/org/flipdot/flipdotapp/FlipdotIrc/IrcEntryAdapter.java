@@ -17,40 +17,37 @@ import java.util.List;
  * Created by daniel on 05.01.15.
  */
 public class IrcEntryAdapter extends ArrayAdapter<IrcEntry> {
-    private final List<IrcEntry> entries;
     private final int resourceId;
 
     public IrcEntryAdapter(Context context, int textViewResourceId, List<IrcEntry> objects) {
         super(context, textViewResourceId, objects);
 
-        this.entries = objects;
         this.resourceId = textViewResourceId;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView != null){
-            return convertView;
+        View view = convertView;
+        if(convertView == null){
+            LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflater.inflate(this.resourceId, parent, false);
         }
 
-        LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(this.resourceId, parent, false);
-
-        IrcEntry ircEntry = this.entries.get(position);
+        IrcEntry ircEntry = this.getItem(position);
 
         // time
         DateFormat dateFormat = android.text.format.DateFormat.getTimeFormat(this.getContext());
-        TextView time = (TextView)rowView.findViewById(R.id.ircEntryTime);
+        TextView time = (TextView)view.findViewById(R.id.ircEntryTime);
         time.setText(dateFormat.format(ircEntry.Time));
 
         // nickname
-        TextView nick = (TextView)rowView.findViewById(R.id.ircUserNick);
+        TextView nick = (TextView)view.findViewById(R.id.ircUserNick);
         nick.setText(ircEntry.User.Nick);
 
         // message
-        TextView msg = (TextView)rowView.findViewById(R.id.ircEntryText);
+        TextView msg = (TextView)view.findViewById(R.id.ircEntryText);
         msg.setText(ircEntry.Msg);
 
-        return rowView;
+        return view;
     }
 }
