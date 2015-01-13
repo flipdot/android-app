@@ -26,10 +26,7 @@ public class SpacestatusLoadTask extends AsyncTask<String,Void,Spacestatus> {
             JSONObject spaceStatusJson = new JSONObject(responseString);
 
             status.isOpen = spaceStatusJson.getBoolean("open");
-
-            if(spaceStatusJson.has("spaceStatusJson")){
-                status.unknownHackers = spaceStatusJson.getInt("unknown_users");
-            }
+            status.unknownHackers = spaceStatusJson.getInt("unknown_users");
 
             if(spaceStatusJson.has("known_users")) {
                 JSONArray knownUsersArray = spaceStatusJson.getJSONArray("known_users");
