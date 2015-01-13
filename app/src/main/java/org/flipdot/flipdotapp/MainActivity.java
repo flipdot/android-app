@@ -159,6 +159,21 @@ public class MainActivity extends Activity {
     }
 
     public void refreshDoorStatus(View view) {
+        if(this.latestSpaceStatus == null) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Not available")
+                    .setMessage("No spacestatus available")
+                    .show();
+            return;
+        }
+        if(!this.latestSpaceStatus.isOpen) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Not open")
+                    .setMessage("Space is not open currently")
+                    .show();
+            return;
+        }
+
         AlertDialog.Builder  dialog = new AlertDialog.Builder(this);
 
         UserOnlineList userOnlineList = new UserOnlineList(this, null);
