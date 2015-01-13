@@ -49,7 +49,9 @@ public class MainActivity extends Activity {
         setFontForElements();
 
         SshKeyGenerator.ensureKeypairExists();
-        this.registerGcm();
+        if(GooglePlayServices.isAvailable(this)) {
+            this.registerGcm();
+        }
 
         updateSpaceStatus();
     }
