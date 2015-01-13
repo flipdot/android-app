@@ -40,18 +40,6 @@
 
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/onlinePeopleList"
-        android:layout_marginTop="10dip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></ListView>
-
-    <TextView
-        android:id="@+id/otherPeopleCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="10pt"/>
-
     <org.flipdot.flipdotapp.FlipdotIrc.FlipdotIrcControl
         android:id="@+id/ircChatControl"
         android:layout_width="wrap_content"

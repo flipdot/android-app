@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import org.flipdot.flipdotapp.helpers.Font;
@@ -25,7 +24,6 @@ import org.flipdot.flipdotapp.notifications.GcmRegistration;
 import org.flipdot.flipdotapp.openDoor.OpenDoorConstants;
 import org.flipdot.flipdotapp.openDoor.SshKeyGenerator;
 import org.flipdot.flipdotapp.openDoor.SshOpenDoorTask;
-import org.flipdot.flipdotapp.spacestatus.KnownHackersAdapter;
 import org.flipdot.flipdotapp.spacestatus.Spacestatus;
 import org.flipdot.flipdotapp.spacestatus.SpacestatusLoadTask;
 
@@ -35,6 +33,7 @@ public class MainActivity extends Activity {
     public static MainActivity instance;
     public AppSettings settings;
 
+    private Spacestatus latestSpaceStatus;
     private FlipdotAuthentication authentication;
 
 
@@ -71,8 +70,7 @@ public class MainActivity extends Activity {
         final Context activity = this;
         final ImageButton spaceOpenImage = (ImageButton)this.findViewById(R.id.openDoorButton);
         final TextView peopleCountText = (TextView)this.findViewById(R.id.peopleCountText);
-        final ListView onlinePeopleList = (ListView)this.findViewById(R.id.onlinePeopleList);
-        final TextView otherPeopleCount = (TextView)this.findViewById(R.id.otherPeopleCount);
+
         SpacestatusLoadTask task = new SpacestatusLoadTask(){
             @Override
             public void onPostExecute(Spacestatus status){
@@ -85,15 +83,7 @@ public class MainActivity extends Activity {
                 int unknownHackerCount = status.unknownHackers;
                 peopleCountText.setText(String.valueOf(hackerCount + unknownHackerCount));
 
-                // make the elements invisible
-                if(!status.isOpen){
-                    onlinePeopleList.setVisibility(View.GONE);
-                    otherPeopleCount.setVisibility(View.GONE);
-                    return;
-                }
-
-                otherPeopleCount.setText("und "+unknownHackerCount+" andere ...");
-                onlinePeopleList.setAdapter(new KnownHackersAdapter(activity, R.layout.known_hacker_item, status.knownHackers));
+                MainActivity.this.latestSpaceStatus = status;
             }
         };
 
@@ -169,7 +159,13 @@ public class MainActivity extends Activity {
     }
 
     public void refreshDoorStatus(View view) {
-        this.updateSpaceStatus();
+        AlertDialog.Builder  dialog = new AlertDialog.Builder(this);
+
+        UserOnlineList userOnlineList = new UserOnlineList(this, null);
+        userOnlineList.setSpacestatus(this.latestSpaceStatus);
+
+        dialog.setView(userOnlineList);
+        dialog.show();
     }
 
     private void registerGcm() {

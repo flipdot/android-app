@@ -47,6 +47,10 @@
             android:name=".FlipdotIrc.FlipdotIrcControl"
             android:label="@string/title_activity_flipdot_irc_control" >
         </activity>
+        <activity
+            android:name=".UserOnlineList"
+            android:label="@string/title_activity_user_online_list" >
+        </activity>
     </application>
 
 </manifest>
