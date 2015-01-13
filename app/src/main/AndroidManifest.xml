@@ -36,20 +36,13 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".FlipdotIrc.FlipdotIrcControl"
-            android:label="@string/title_activity_flipdot_irc_control" >
-        </activity>
-        <activity
-            android:name=".UserOnlineList"
-            android:label="@string/title_activity_user_online_list" >
         </activity>
     </application>
 
