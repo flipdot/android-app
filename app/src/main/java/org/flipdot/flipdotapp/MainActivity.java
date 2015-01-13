@@ -201,4 +201,8 @@ public class MainActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         this.authentication.onActivityResult(requestCode, resultCode, data);
     }
+
+    public void refresh(MenuItem item) {
+        this.updateSpaceStatus();
+    }
 }
