@@ -179,6 +179,7 @@ public class MainActivity extends Activity {
         UserOnlineList userOnlineList = new UserOnlineList(this, null);
         userOnlineList.setSpacestatus(this.latestSpaceStatus);
 
+        dialog.setTitle("Who's in?");
         dialog.setView(userOnlineList);
         dialog.show();
     }
