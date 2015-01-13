@@ -158,7 +158,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void refreshDoorStatus(View view) {
+    public void showOnlineList(View view) {
         if(this.latestSpaceStatus == null) {
             new AlertDialog.Builder(this)
                     .setTitle("Not available")

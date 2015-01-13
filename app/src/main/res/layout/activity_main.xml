@@ -21,7 +21,7 @@
         <ImageButton
         android:layout_width="110dip"
         android:layout_height="105dip"
-        android:onClick="refreshDoorStatus"
+        android:onClick="showOnlineList"
         android:layout_marginLeft="10dip"
         android:layout_toRightOf="@+id/openDoorButton"
         android:background="@drawable/peopleinspace_mock" />
