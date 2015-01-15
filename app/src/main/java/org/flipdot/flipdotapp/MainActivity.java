@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
         setFontForElements();
 
         SshKeyGenerator.ensureKeypairExists();
-        if(GooglePlayServices.isAvailable(this)) {
+        if(GooglePlayServices.isAvailable(this, this.settings)) {
             this.registerGcm();
         }
 

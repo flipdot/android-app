@@ -37,4 +37,13 @@ public class AppSettings {
         this.editor.putString("GcmId", gcmId);
         this.editor.commit();
     }
+
+    public boolean getInstallPlayServicesShown() {
+        return this.preferences.getBoolean("installPlayServicesShown", false);
+    }
+
+    public void setInstallPlayServicesShown(boolean installPlayServicesShown) {
+        this.editor.putBoolean("installPlayServicesShown", installPlayServicesShown);
+        this.editor.commit();
+    }
 }
