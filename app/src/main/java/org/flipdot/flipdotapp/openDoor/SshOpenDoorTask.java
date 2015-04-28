@@ -17,6 +17,8 @@ public class SshOpenDoorTask extends AsyncTask<String,Void,Object> {
     private String _hostname;
     private String _user;
 
+    protected Exception Exception;
+
     public SshOpenDoorTask(String publicKey) {
         this._hostname = "tuer-pi";
         this._user = "opendoor";
@@ -46,7 +48,7 @@ public class SshOpenDoorTask extends AsyncTask<String,Void,Object> {
             channel.setOutputStream(System.out);
             channel.connect(5000);
         } catch (Exception ex) {
-            throw new RuntimeException(ex);
+            this.Exception = ex;
         }
 
         return null;

@@ -128,7 +128,25 @@ public class MainActivity extends Activity {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String value = input.getText().toString();
 
-                SshOpenDoorTask sshOpenDoorTask = new SshOpenDoorTask(OpenDoorConstants.PrivateKeyFilePath);
+                // TODO: handle value, check the pin
+
+                SshOpenDoorTask sshOpenDoorTask = new SshOpenDoorTask(OpenDoorConstants.PrivateKeyFilePath){
+                    @Override
+                    protected void onPostExecute(Object o) {
+                        if(this.Exception != null){
+                            final AlertDialog errorDialog = new AlertDialog.Builder(MainActivity.this)
+                                    .setMessage("Fehler: "+this.Exception.toString())
+                                    .setPositiveButton("OK, ich versuchs später noch mal ...", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    })
+                                    .create();
+                            errorDialog.show();
+                        }
+                    }
+                };
                 sshOpenDoorTask.execute();
             }
         });
