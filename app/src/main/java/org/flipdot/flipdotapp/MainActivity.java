@@ -186,7 +186,7 @@ public class MainActivity extends Activity {
                     .show();
             return;
         }
-        if(!this.latestSpaceStatus.isOpen) {
+        if(!this.latestSpaceStatus.isOpen && this.latestSpaceStatus.knownHackers.size() < 1) {
             new AlertDialog.Builder(this)
                     .setTitle("Not open")
                     .setMessage("Space is not open currently")
