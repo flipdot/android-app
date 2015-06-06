@@ -20,7 +20,7 @@ public class SshOpenDoorTask extends AsyncTask<String,Void,Object> {
     protected Exception Exception;
 
     public SshOpenDoorTask(String publicKey) {
-        this._hostname = "tuer-pi";
+        this._hostname = "192.168.3.42";
         this._user = "opendoor";
 
         this._jsch = new JSch();
